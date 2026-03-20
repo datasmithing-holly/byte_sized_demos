@@ -7,10 +7,17 @@
 # MAGIC Everything inside a `BEGIN ATOMIC ... END` block either succeeds together or rolls back together.
 # MAGIC No more partial updates. No more inconsistent state between related tables.
 # MAGIC
-# MAGIC **Status:** Public Preview
-# MAGIC **Requires:** Runtime 18.0+, Unity Catalog managed tables, catalog-managed commits
+# MAGIC | | |
+# MAGIC |---|---|
+# MAGIC | **Status** | Public Preview (March 2026) |
+# MAGIC | **Requires** | Runtime 18.0+, Unity Catalog managed tables, catalog-managed commits |
+# MAGIC | **Docs** | [ATOMIC compound statement](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-txn-begin-atomic), [Transaction modes](https://docs.databricks.com/aws/en/transactions/transaction-modes) |
+# MAGIC | **Data** | [Casper's Kitchens](https://github.com/databricks-solutions/caspers-kitchens) — a simulated ghost kitchen with deliveries, line items, and driver information |
 # MAGIC
-# MAGIC This demo uses [Casper's Kitchens](https://github.com/databricks-solutions/caspers-kitchens) data: a simulated ghost kitchen with deliveries, line items, and driver information.
+# MAGIC ### What this demo covers
+# MAGIC 1. Create two summary tables from Casper's delivery data (kitchen revenue + driver stats)
+# MAGIC 2. Use `BEGIN ATOMIC ... END` to update both tables in one atomic operation
+# MAGIC 3. Show a deliberately failing transaction where both tables roll back cleanly
 
 # COMMAND ----------
 
