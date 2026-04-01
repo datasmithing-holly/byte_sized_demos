@@ -14,33 +14,15 @@ Static dropdown parameters go stale. Someone adds a new brand to the ghost kitch
 
 Dynamic dropdowns fix this: point the widget at a saved query and the options stay current.
 
-## Step 1: Create and save the source query
+## Step 1: Run and save the source query
 
-Open the SQL editor. Paste this and run it:
-
-```sql
--- 👻 every brand in the ghost kitchen empire, always up to date
-SELECT DISTINCT name FROM caspers_kitchen.simulator.brands ORDER BY name
-```
-
-Save it as **Brand List** (Ctrl/Cmd + S).
+Open `brand_list.sql`. Run it, then save (Ctrl/Cmd + S).
 
 This is the query the dropdown will pull from. Any time a new brand gets onboarded, it shows up here automatically.
 
-## Step 2: Create the main query
+## Step 2: Open the main query
 
-Open a new SQL editor tab. Paste this:
-
-```sql
--- 🍔 what's on the menu?
-SELECT i.name AS item, i.price, b.cuisine_type
-FROM caspers_kitchen.simulator.items i
-JOIN caspers_kitchen.simulator.brands b ON i.brand_id = b.brand_id
-WHERE b.name = :brand
-ORDER BY i.price DESC
-```
-
-A `:brand` parameter widget appears above the results pane.
+Open `menu_by_brand.sql`. A `:brand` parameter widget appears above the results pane.
 
 ## Step 3: Wire up the dynamic dropdown
 
