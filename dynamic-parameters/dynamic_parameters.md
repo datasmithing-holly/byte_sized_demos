@@ -8,42 +8,8 @@ Requires the **new SQL editor** (not classic). SQL warehouse only (not notebooks
 
 ---
 
-## The problem
-
-Static dropdown parameters go stale. Someone adds a new brand to the ghost kitchen empire and the dropdown still shows last month's list. You either maintain it by hand or people type wrong values.
-
-Dynamic dropdowns fix this: point the widget at a saved query and the options stay current.
-
-## Step 1: Run and save the source query
-
-Open `brand_list.sql`. Run it, then save (Ctrl/Cmd + S).
-
-This is the query the dropdown will pull from. Any time a new brand gets onboarded, it shows up here automatically.
-
-## Step 2: Open the main query
-
-Open `menu_by_brand.sql`. A `:brand` parameter widget appears above the results pane.
-
-## Step 3: Wire up the dynamic dropdown
-
-1. Click the **gear icon** (⚙️) next to the `:brand` widget
-2. Set **Widget type** → Dynamic dropdown
-3. In the **Query** field, select the **Brand List** query you saved in step 1
-4. Pick a **Default parameter value** (try McDoodles, they have 15 items)
-5. Click **Apply Changes**
-
-Run the query. The dropdown now lists every brand from the saved query.
-
-## Step 4: See it stay current
-
-Pick different brands from the dropdown and re-run. Notice:
-
-- **McDoodles** has 15 items (of course they do)
-- **NootroNourish** has 4 items and a cuisine type of "Nootropic Cafe" (for when you want your lunch to also be a brain supplement)
-- **The Golden Falafel** has 0 items because it was just onboarded via a multi-table transaction and hasn't built its menu yet
-
-If someone adds a new brand to `caspers_kitchen.simulator.brands`, it appears in the dropdown next time you open it. No widget editing needed.
-
-## Cleanup
-
-Nothing to clean up. Both queries live in your saved queries and can be deleted from there if you want.
+- Open and run `brand_list.sql`, save it (this feeds the dropdown)
+- Open `menu_by_brand.sql` — a `:brand` widget appears
+- Click ⚙️ on the widget → **Dynamic dropdown** → select **📝 Brand List** → pick McDoodles as the default → Apply
+- Run it, swap between brands: McDoodles (15 items), NootroNourish (Nootropic Cafe, obviously), The Golden Falafel (0 items, just onboarded, no menu yet)
+- New brands added to `caspers_kitchen.simulator.brands` show up in the dropdown automatically. No widget editing needed.
