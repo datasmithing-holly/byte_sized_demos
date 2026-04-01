@@ -1,4 +1,4 @@
-# 🎛️ Dynamic Parameters in the SQL Editor
+# 🎚️ Dynamic Parameters in the SQL Editor
 
 The SQL editor's new Dynamic dropdown widget type populates a parameter list from a saved query instead of a static list. When the underlying data changes, the dropdown updates automatically.
 
