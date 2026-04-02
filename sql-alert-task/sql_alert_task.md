@@ -8,7 +8,7 @@ You can now add a SQL alert as a task in a Databricks job. The job evaluates the
 
 ---
 
-- Create a new alert: paste `alert_query.sql` into the alert editor (finds brands with no menu items). Set condition to **Rows > 0**, pick the serverless warehouse, add yourself as subscriber
+- Create a new alert: paste `alert_query.sql` into the alert editor (finds brands with no menu items). Set condition to **Count** of **brand** > **0**, pick the serverless warehouse, add yourself as subscriber
 - Save the alert and give it a name (e.g. "🕵️ Menuless Brands")
 - Create a new job: Jobs & Pipelines → Create → Job
 - Click **Add another task type** → search **SQL Alert** → select it
