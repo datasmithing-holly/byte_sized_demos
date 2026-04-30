@@ -1,11 +1,17 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # 🎨 Lakeflow Designer
-# MAGIC Visual, no-code data prep built directly into Databricks. Drag, drop, type in English, get a production-ready pipeline. No Alteryx license required.
+# MAGIC Visual, no-code data prep built directly into Databricks. Drag, drop, type in English, get a production-ready pipeline. No per-user license, no separate tool.
 # MAGIC
-# MAGIC **Public Preview** — runs on serverless compute. Admin may need to enable it in the preview portal.
+# MAGIC **Public Preview** — runs on serverless compute. A workspace admin must enable it in the preview portal first (it's not on by default yet).
 # MAGIC
 # MAGIC [Docs](https://docs.databricks.com/aws/en/designer/) [Blog](https://www.databricks.com/blog/announcing-public-preview-lakeflow-designer) [Data Generator 👻](https://github.com/databricks-solutions/caspers-kitchens)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 0. Enable Designer (one-time admin step)
+# MAGIC If you don't see "Visual data prep" in the + New menu, a workspace admin needs to enable the preview. Go to **Admin Settings → Previews** and turn on Lakeflow Designer.
 
 # COMMAND ----------
 
